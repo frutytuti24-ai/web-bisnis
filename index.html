@@ -2,53 +2,346 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <title>Website Pertama Saya</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0 16px;
-        }
-        header {
-            text-align: center;
-        }
-        h1 {
-            margin-bottom: 0;
-        }
-        .card {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 16px;
-            margin-top: 24px;
-        }
-        .btn {
-            display: inline-block;
-            padding: 8px 16px;
-            border-radius: 4px;
-            text-decoration: none;
-            border: 1px solid #333;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bisnisss – Jual Produk Digital & Jasa Desain</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f5f5;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #2563eb, #22c55e);
+      color: #fff;
+      padding: 24px 16px 40px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .nav small {
+      font-size: 0.8rem;
+      opacity: 0.85;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
+      gap: 24px;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      margin-bottom: 16px;
+      opacity: 0.95;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(15, 23, 42, 0.18);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+    }
+
+    .btn-main {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      border-radius: 99px;
+      border: none;
+      background: #fff;
+      color: #111827;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.18);
+    }
+
+    .btn-main:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero-note {
+      font-size: 0.78rem;
+      margin-top: 8px;
+      opacity: 0.9;
+    }
+
+    .hero-card {
+      background: #f9fafb;
+      border-radius: 16px;
+      padding: 16px 18px;
+      color: #111827;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.18);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .hero-card h3 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-card ul {
+      list-style: none;
+      font-size: 0.86rem;
+    }
+
+    .hero-card li {
+      margin-bottom: 6px;
+    }
+
+    .hero-card li::before {
+      content: "✔ ";
+      color: #16a34a;
+      font-weight: 700;
+    }
+
+    main {
+      margin-top: -20px;
+      padding-bottom: 40px;
+    }
+
+    .section {
+      padding: 32px 16px;
+    }
+
+    .section h2 {
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .section p.section-intro {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 24px;
+      font-size: 0.95rem;
+      color: #4b5563;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 14px 16px;
+      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.08);
+      border: 1px solid #e5e7eb;
+      font-size: 0.9rem;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #4f46e5;
+      margin-bottom: 6px;
+    }
+
+    .highlight {
+      color: #2563eb;
+      font-weight: 600;
+    }
+
+    .contact-box {
+      margin-top: 12px;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .contact-box a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      padding: 16px;
+      font-size: 0.8rem;
+      color: #6b7280;
+      border-top: 1px solid #e5e7eb;
+      background: #f9fafb;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding-bottom: 28px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-title {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Halo, ini website pertama saya!</h1>
-        <p>Dibuat pakai Git Bash 😎</p>
-    </header>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <div class="logo">Bisnisss</div>
+        <small>Produk Digital & Jasa Desain</small>
+      </div>
 
-    <section class="card">
-        <h2>Tentang Saya</h2>
-        <p>
-            Tulis sedikit tentang diri kamu di sini.
+      <div class="hero">
+        <div>
+          <div class="hero-badge">Website sederhana untuk mulai jualan online 💻</div>
+          <h1 class="hero-title">Bangun brand & penjualan dengan produk digital yang rapi & profesional.</h1>
+          <p class="hero-subtitle">
+            Jualan template CV, desain sederhana, dan produk digital lain secara praktis.
+            Cocok untuk kamu yang baru mulai, tapi ingin tampilan yang meyakinkan calon pembeli.
+          </p>
+
+          <!-- GANTI NOMOR WA DI SINI -->
+          <a class="btn-main" href="https://wa.me/6281234567890?text=Halo%20kak,%20saya%20tertarik%20dengan%20produk%20digital%20Bisnisss.">
+            Chat via WhatsApp
+          </a>
+          <p class="hero-note">Tanyakan katalog produk, harga, atau minta contoh desain.</p>
+        </div>
+
+        <div class="hero-card">
+          <h3>Contoh produk digital yang bisa kamu jual</h3>
+          <ul>
+            <li>Template CV siap edit di Canva</li>
+            <li>Template surat lamaran kerja</li>
+            <li>E-book singkat (tips kerja / bisnis)</li>
+            <li>Desain feed Instagram sederhana</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h2>Kenapa pakai Bisnisss?</h2>
+        <p class="section-intro">
+          Website sederhana tapi niat, bisa jadi langkah pertama kamu memulai bisnis online.
+          Tanpa ribet, tanpa biaya bulanan mahal, tapi tetap kelihatan profesional.
         </p>
+
+        <div class="grid">
+          <div class="card">
+            <span class="tag">Simple</span>
+            <h3>Mudah diatur</h3>
+            <p>
+              Konten bisa kamu ubah kapan saja lewat file <span class="highlight">index.html</span>.
+              Cocok buat yang masih belajar website.
+            </p>
+          </div>
+          <div class="card">
+            <span class="tag">Hemat</span>
+            <h3>Hosting gratis</h3>
+            <p>
+              Website ini di-hosting gratis di Netlify, jadi kamu bisa fokus ke produk & pembeli
+              tanpa mikirin biaya server.
+            </p>
+          </div>
+          <div class="card">
+            <span class="tag">Fleksibel</span>
+            <h3>Bisa dikembangkan</h3>
+            <p>
+              Mau tambah halaman portofolio, halaman testimoni, atau form order?
+              Semua bisa ditambah pelan-pelan.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="card">
-        <h2>Kontak</h2>
-        <p>Instagram: @username_kamu</p>
-        <a href="#" class="btn">Tombol Contoh</a>
+    <section class="section" style="background:#e5f0ff;">
+      <div class="container">
+        <h2>Contoh daftar produk</h2>
+        <p class="section-intro">
+          Ini contoh saja. Kamu bisa ganti nama produk, harga, dan isi sesuai bisnis kamu.
+        </p>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Template CV Profesional</h3>
+            <p>Format Canva / PDF, cocok untuk melamar kerja kantoran dan fresh graduate.</p>
+            <p><strong>Mulai dari: Rp15.000</strong></p>
+          </div>
+          <div class="card">
+            <h3>Template Surat Lamaran</h3>
+            <p>Bahasa Indonesia yang rapi dan sopan, bisa langsung edit isi dan data diri.</p>
+            <p><strong>Mulai dari: Rp10.000</strong></p>
+          </div>
+          <div class="card">
+            <h3>E-book Singkat: Tips Melamar Kerja</h3>
+            <p>Berisi ringkasan tips penting saat mencari kerja dan menghadapi interview.</p>
+            <p><strong>Harga: Rp20.000</strong></p>
+          </div>
+        </div>
+
+        <div class="contact-box">
+          <p>Minat atau mau tanya-tanya dulu?</p>
+          <!-- GANTI WA / IG DI SINI JUGA KALAU MAU -->
+          <p>Hubungi: <a href="https://wa.me/6281234567890">WhatsApp Admin</a> atau IG: <strong>@usernamekamu</strong></p>
+        </div>
+      </div>
     </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Bisnisss — Website sederhana untuk mulai jualan produk digital.
+  </footer>
+
+  <script>
+    // otomatis isi tahun berjalan di footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
