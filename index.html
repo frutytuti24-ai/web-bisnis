@@ -1,347 +1,189 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bisnisss – Jual Produk Digital & Jasa Desain</title>
+  <title>Pembayaran Deposit - DANA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+      font-family: Arial, sans-serif;
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f5f5f5;
-      color: #222;
-      line-height: 1.6;
-    }
-
-    header {
-      background: linear-gradient(135deg, #2563eb, #22c55e);
-      color: #fff;
-      padding: 24px 16px 40px;
+      margin: 0;
+      padding: 0;
+      background: #f3f4f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
 
     .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 16px;
-    }
-
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 32px;
-    }
-
-    .logo {
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
-
-    .nav small {
-      font-size: 0.8rem;
-      opacity: 0.85;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
-      gap: 24px;
-      align-items: center;
-    }
-
-    .hero-title {
-      font-size: 2rem;
-      margin-bottom: 12px;
-    }
-
-    .hero-subtitle {
-      font-size: 1rem;
-      margin-bottom: 16px;
-      opacity: 0.95;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      background: rgba(15, 23, 42, 0.18);
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      margin-bottom: 10px;
-    }
-
-    .btn-main {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 20px;
-      border-radius: 99px;
-      border: none;
-      background: #fff;
-      color: #111827;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 0.95rem;
-      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.18);
-    }
-
-    .btn-main:hover {
-      transform: translateY(-1px);
-    }
-
-    .hero-note {
-      font-size: 0.78rem;
-      margin-top: 8px;
-      opacity: 0.9;
-    }
-
-    .hero-card {
-      background: #f9fafb;
-      border-radius: 16px;
-      padding: 16px 18px;
-      color: #111827;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.18);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-    }
-
-    .hero-card h3 {
-      font-size: 1rem;
-      margin-bottom: 10px;
-    }
-
-    .hero-card ul {
-      list-style: none;
-      font-size: 0.86rem;
-    }
-
-    .hero-card li {
-      margin-bottom: 6px;
-    }
-
-    .hero-card li::before {
-      content: "✔ ";
-      color: #16a34a;
-      font-weight: 700;
-    }
-
-    main {
-      margin-top: -20px;
-      padding-bottom: 40px;
-    }
-
-    .section {
-      padding: 32px 16px;
-    }
-
-    .section h2 {
-      font-size: 1.4rem;
-      margin-bottom: 16px;
+      width: 100%;
+      max-width: 480px;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 20px 24px 24px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
       text-align: center;
     }
 
-    .section p.section-intro {
-      text-align: center;
-      max-width: 640px;
-      margin: 0 auto 24px;
-      font-size: 0.95rem;
+    h1 {
+      margin-top: 0;
+      font-size: 22px;
+    }
+
+    p {
+      margin: 6px 0;
+      font-size: 14px;
       color: #4b5563;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 14px;
-      padding: 14px 16px;
-      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.08);
-      border: 1px solid #e5e7eb;
-      font-size: 0.9rem;
-    }
-
-    .card h3 {
-      font-size: 1rem;
-      margin-bottom: 8px;
-    }
-
-    .tag {
-      display: inline-block;
-      font-size: 0.75rem;
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: #eef2ff;
-      color: #4f46e5;
-      margin-bottom: 6px;
-    }
-
-    .highlight {
-      color: #2563eb;
+    .amount-box {
+      background: #111827;
+      color: #ffffff;
+      padding: 12px 14px;
+      border-radius: 10px;
+      margin: 16px 0;
+      font-size: 16px;
       font-weight: 600;
     }
 
-    .contact-box {
-      margin-top: 12px;
-      text-align: center;
-      font-size: 0.95rem;
+    .pay-method {
+      margin-top: 10px;
+      text-align: left;
     }
 
-    .contact-box a {
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    footer {
-      text-align: center;
-      padding: 16px;
-      font-size: 0.8rem;
+    .label {
+      font-size: 13px;
       color: #6b7280;
-      border-top: 1px solid #e5e7eb;
-      background: #f9fafb;
     }
 
-    @media (max-width: 768px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
+    .dana-number {
+      font-size: 18px;
+      font-weight: 700;
+      margin-top: 4px;
+    }
 
-      header {
-        padding-bottom: 28px;
-      }
+    .btn {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 10px;
+    }
 
-      .grid {
-        grid-template-columns: 1fr;
-      }
+    .btn-copy {
+      background: #16a34a;
+      color: #ffffff;
+    }
 
-      .hero-title {
-        font-size: 1.6rem;
-      }
+    .btn-back {
+      background: #111827;
+      color: #ffffff;
+      margin-top: 16px;
+      width: 100%;
+    }
+
+    .small {
+      font-size: 12px;
+      color: #9ca3af;
+      margin-top: 8px;
+    }
+
+    .alert {
+      margin-top: 8px;
+      font-size: 13px;
+      color: #16a34a;
+      display: none;
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <div class="nav">
-        <div class="logo">Bisnisss</div>
-        <small>Produk Digital & Jasa Desain</small>
-      </div>
+  <div class="container">
+    <h1>Pembayaran Deposit</h1>
+    <p>Silakan lakukan pembayaran deposit melalui DANA ke nomor berikut.</p>
 
-      <div class="hero">
-        <div>
-          <div class="hero-badge">Website sederhana untuk mulai jualan online 💻</div>
-          <h1 class="hero-title">Bangun brand & penjualan dengan produk digital yang rapi & profesional.</h1>
-          <p class="hero-subtitle">
-            Jualan template CV, desain sederhana, dan produk digital lain secara praktis.
-            Cocok untuk kamu yang baru mulai, tapi ingin tampilan yang meyakinkan calon pembeli.
-          </p>
-
-          <!-- GANTI NOMOR WA DI SINI -->
-          <a class="btn-main" href="https://wa.me/6281234567890?text=Halo%20kak,%20saya%20tertarik%20dengan%20produk%20digital%20Bisnisss.">
-            Chat via WhatsApp
-          </a>
-          <p class="hero-note">Tanyakan katalog produk, harga, atau minta contoh desain.</p>
-        </div>
-
-        <div class="hero-card">
-          <h3>Contoh produk digital yang bisa kamu jual</h3>
-          <ul>
-            <li>Template CV siap edit di Canva</li>
-            <li>Template surat lamaran kerja</li>
-            <li>E-book singkat (tips kerja / bisnis)</li>
-            <li>Desain feed Instagram sederhana</li>
-          </ul>
-        </div>
-      </div>
+    <div id="deposit-amount-box" class="amount-box">
+      Jumlah Deposit: <span id="deposit-amount-text">Rp 0</span>
     </div>
-  </header>
 
-  <main>
-    <section class="section">
-      <div class="container">
-        <h2>Kenapa pakai Bisnisss?</h2>
-        <p class="section-intro">
-          Website sederhana tapi niat, bisa jadi langkah pertama kamu memulai bisnis online.
-          Tanpa ribet, tanpa biaya bulanan mahal, tapi tetap kelihatan profesional.
-        </p>
+    <div class="pay-method">
+      <div class="label">Metode Pembayaran</div>
+      <p><strong>DANA</strong></p>
 
-        <div class="grid">
-          <div class="card">
-            <span class="tag">Simple</span>
-            <h3>Mudah diatur</h3>
-            <p>
-              Konten bisa kamu ubah kapan saja lewat file <span class="highlight">index.html</span>.
-              Cocok buat yang masih belajar website.
-            </p>
-          </div>
-          <div class="card">
-            <span class="tag">Hemat</span>
-            <h3>Hosting gratis</h3>
-            <p>
-              Website ini di-hosting gratis di Netlify, jadi kamu bisa fokus ke produk & pembeli
-              tanpa mikirin biaya server.
-            </p>
-          </div>
-          <div class="card">
-            <span class="tag">Fleksibel</span>
-            <h3>Bisa dikembangkan</h3>
-            <p>
-              Mau tambah halaman portofolio, halaman testimoni, atau form order?
-              Semua bisa ditambah pelan-pelan.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+      <div class="label">Nomor DANA Tujuan</div>
+      <div class="dana-number" id="dana-number">083119723180</div>
 
-    <section class="section" style="background:#e5f0ff;">
-      <div class="container">
-        <h2>Contoh daftar produk</h2>
-        <p class="section-intro">
-          Ini contoh saja. Kamu bisa ganti nama produk, harga, dan isi sesuai bisnis kamu.
-        </p>
+      <button class="btn btn-copy" id="btn-copy">Salin Nomor DANA</button>
+      <div id="copy-alert" class="alert">Nomor DANA berhasil disalin.</div>
+    </div>
 
-        <div class="grid">
-          <div class="card">
-            <h3>Template CV Profesional</h3>
-            <p>Format Canva / PDF, cocok untuk melamar kerja kantoran dan fresh graduate.</p>
-            <p><strong>Mulai dari: Rp15.000</strong></p>
-          </div>
-          <div class="card">
-            <h3>Template Surat Lamaran</h3>
-            <p>Bahasa Indonesia yang rapi dan sopan, bisa langsung edit isi dan data diri.</p>
-            <p><strong>Mulai dari: Rp10.000</strong></p>
-          </div>
-          <div class="card">
-            <h3>E-book Singkat: Tips Melamar Kerja</h3>
-            <p>Berisi ringkasan tips penting saat mencari kerja dan menghadapi interview.</p>
-            <p><strong>Harga: Rp20.000</strong></p>
-          </div>
-        </div>
+    <p class="small">
+      Setelah melakukan pembayaran, harap kirim bukti transfer ke admin untuk proses verifikasi saldo.
+    </p>
 
-        <div class="contact-box">
-          <p>Minat atau mau tanya-tanya dulu?</p>
-          <!-- GANTI WA / IG DI SINI JUGA KALAU MAU -->
-          <p>Hubungi: <a href="https://wa.me/6281234567890">WhatsApp Admin</a> atau IG: <strong>@usernamekamu</strong></p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    © <span id="year"></span> Bisnisss — Website sederhana untuk mulai jualan produk digital.
-  </footer>
+    <button class="btn btn-back" onclick="kembaliKeDashboard()">Kembali ke Dashboard</button>
+  </div>
 
   <script>
-    // otomatis isi tahun berjalan di footer
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // Menampilkan jumlah deposit yang sebelumnya diinput user
+    function formatRupiah(angka) {
+      const numberString = String(angka || 0).replace(/\D/g, "");
+      const sisa = numberString.length % 3;
+      let rupiah = numberString.substr(0, sisa);
+      const ribuan = numberString.substr(sisa).match(/\d{3}/g);
+
+      if (ribuan) {
+        const separator = sisa ? "." : "";
+        rupiah += separator + ribuan.join(".");
+      }
+      return "Rp " + (rupiah || "0");
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const amountText = document.getElementById("deposit-amount-text");
+      const pendingDeposit = localStorage.getItem("pendingDeposit");
+      const jumlah = pendingDeposit ? Number(pendingDeposit) : 0;
+      amountText.textContent = formatRupiah(jumlah);
+    });
+
+    // Tombol salin nomor DANA
+    const btnCopy = document.getElementById("btn-copy");
+    const danaNumberElement = document.getElementById("dana-number");
+    const copyAlert = document.getElementById("copy-alert");
+
+    btnCopy.addEventListener("click", async () => {
+      const nomor = danaNumberElement.textContent.trim();
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(nomor);
+        } else {
+          // fallback lama
+          const tempInput = document.createElement("input");
+          tempInput.value = nomor;
+          document.body.appendChild(tempInput);
+          tempInput.select();
+          document.execCommand("copy");
+          document.body.removeChild(tempInput);
+        }
+        copyAlert.style.display = "block";
+        setTimeout(() => {
+          copyAlert.style.display = "none";
+        }, 2000);
+      } catch (err) {
+        alert("Gagal menyalin nomor, silakan salin manual.");
+      }
+    });
+
+    function kembaliKeDashboard() {
+      window.location.href = "index.html";
+    }
   </script>
 </body>
 </html>
