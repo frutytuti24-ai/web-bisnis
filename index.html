@@ -4,12 +4,30 @@
   <meta charset="UTF-8">
   <title>Welcome</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- WAJIB: Netlify Identity -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
+
   <div class="card">
     <h2>Selamat Datang</h2>
-    <button onclick="location.href='login.html'">Masuk</button>
-    <button class="daftar" onclick="location.href='daftar.html'">Daftar</button>
+
+    <!-- LOGIN ASLI -->
+    <button onclick="netlifyIdentity.open('login')">Masuk</button>
+
+    <!-- DAFTAR ASLI -->
+    <button class="daftar" onclick="netlifyIdentity.open('signup')">Daftar</button>
   </div>
+
+  <script>
+    if (window.netlifyIdentity) {
+      netlifyIdentity.on("login", user => {
+        console.log("LOGIN BERHASIL:", user.email);
+        location.href = "dashboard.html";
+      });
+    }
+  </script>
+
 </body>
 </html>
