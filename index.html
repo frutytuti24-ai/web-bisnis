@@ -5,24 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daftar Akun</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- Netlify Identity -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body class="dark">
 
 <div class="wrapper">
   <h1 class="title">Mendaftarkan Akun</h1>
   <p class="desc">
-    Silakan isi informasi pendaftaran Anda dengen sesuai
+    Silakan isi informasi pendaftaran Anda
   </p>
 
-  <form action="login.html">
-    <input type="tel" placeholder="+62 Nomor Telepon" required>
-    <input type="password" placeholder="Kata Sandi" required>
-    <input type="password" placeholder="Konfirmasi Kata Sandi" required>
+  <!-- TIDAK pakai form action -->
+  <button class="btn btn-light full" onclick="netlifyIdentity.open('signup')">
+    Daftar
+  </button>
 
-    <button type="submit" class="btn btn-light full">Daftar</button>
-    <a href="login.html" class="link">Masuk</a>
-  </form>
+  <a href="#" class="link" onclick="netlifyIdentity.open('login')">
+    Masuk
+  </a>
 </div>
+
+<script>
+  if (window.netlifyIdentity) {
+
+    // Setelah login / daftar sukses → masuk dashboard
+    netlifyIdentity.on("login", () => {
+      window.location.href = "dashboard.html";
+    });
+
+  }
+</script>
 
 </body>
 </html>

@@ -1,25 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Netlify Identity -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+<div class="card">
+  <h2>Dashboard</h2>
+  <p id="status">Memuat...</p>
+  <button onclick="logout()">Logout</button>
+</div>
+
+<div id="adminPanel" style="display:none;">
+  <h3>Admin Panel</h3>
+  <p>Kamu adalah admin</p>
+</div>
+
 <script>
+  function logout() {
+    netlifyIdentity.logout();
+    window.location.href = "index.html";
+  }
+
   if (window.netlifyIdentity) {
 
     netlifyIdentity.on("init", user => {
       if (!user) {
-        // BELUM login → tunggu login
-        netlifyIdentity.on("login", user => {
-          location.reload();
-        });
-      } else {
-        // SUDAH login
-        document.getElementById("status").innerText =
-          "Login sebagai: " + user.email;
+        // ❗ WAJIB: redirect kalau belum login
+        window.location.href = "index.html";
+        return;
+      }
 
-        const roles = user.app_metadata?.roles || [];
-        if (roles.includes("admin")) {
-          document.getElementById("adminPanel").style.display = "block";
-        }
+      // ✅ Sudah login
+      document.getElementById("status").innerText =
+        "Login sebagai: " + user.email;
+
+      const roles = user.app_metadata?.roles || [];
+      if (roles.includes("admin")) {
+        document.getElementById("adminPanel").style.display = "block";
       }
     });
 
   } else {
-    document.getElementById("status").innerText = "Netlify Identity tidak tersedia";
+    document.getElementById("status").innerText =
+      "Netlify Identity tidak tersedia";
   }
 </script>
+
+</body>
+</html>
