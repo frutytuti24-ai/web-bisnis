@@ -5,7 +5,7 @@
   <title>Welcome</title>
   <link rel="stylesheet" href="style.css">
 
-  <!-- WAJIB: Netlify Identity -->
+  <!-- WAJIB -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
@@ -13,21 +13,30 @@
   <div class="card">
     <h2>Selamat Datang</h2>
 
-    <!-- LOGIN ASLI -->
     <button onclick="netlifyIdentity.open('login')">Masuk</button>
-
-    <!-- DAFTAR ASLI -->
     <button class="daftar" onclick="netlifyIdentity.open('signup')">Daftar</button>
   </div>
 
+  <!-- 🔐 SCRIPT PENTING (ANTI LOOP) -->
   <script>
     if (window.netlifyIdentity) {
+
+      // TUNGGU identity siap
+      netlifyIdentity.on("init", user => {
+        if (user) {
+          // sudah login → ke dashboard
+          location.href = "dashboard.html";
+        }
+      });
+
+      // setelah login manual
       netlifyIdentity.on("login", user => {
-        console.log("LOGIN BERHASIL:", user.email);
         location.href = "dashboard.html";
       });
+
     }
   </script>
 
 </body>
 </html>
+
