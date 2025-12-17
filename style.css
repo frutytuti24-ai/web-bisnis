@@ -1,31 +1,87 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
 body {
   margin: 0;
-  background: black;
-  color: white;
-  font-family: Arial, sans-serif;
+  height: 100vh;
+  background: linear-gradient(135deg, #e6f8ec, #c7f0da);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
-.card {
-  background: #111;
+body.dark {
+  background: linear-gradient(180deg, #1f6f68, #2e8f80);
+}
+
+.wrapper {
+  width: 320px;
   padding: 30px;
-  border-radius: 10px;
-  width: 300px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.85);
   text-align: center;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
-button {
+body.dark .wrapper {
+  background: rgba(255,255,255,0.12);
+  color: #eafff8;
+}
+
+.title {
+  margin-bottom: 10px;
+}
+
+.desc {
+  font-size: 13px;
+  margin-bottom: 22px;
+}
+
+input {
   width: 100%;
-  padding: 10px;
-  margin-top: 10px;
+  padding: 12px 15px;
+  border-radius: 25px;
   border: none;
-  border-radius: 5px;
+  outline: none;
+  margin-bottom: 12px;
+}
+
+.btn-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.btn {
+  padding: 12px;
+  width: 48%;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
   cursor: pointer;
 }
 
-.daftar {
-  background: #22c55e;
+.btn-light {
+  background: #eaffea;
+  color: #1f6f68;
+}
+
+.btn-dark {
+  background: #1f6f68;
+  color: #ffffff;
+}
+
+.full {
+  width: 100%;
+}
+
+.link {
+  display: block;
+  margin-top: 15px;
+  text-decoration: none;
+  color: #d7fff0;
+  font-size: 14px;
 }

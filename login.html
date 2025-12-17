@@ -1,15 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-  <title>Login</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masuk | MBA Global Travel Work</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="card">
-    <h2>Login</h2>
-    <input placeholder="Username">
-    <input type="password" placeholder="Password">
-    <button onclick="location.href='dashboard.html'">Masuk</button>
-  </div>
+
+<div class="wrapper">
+  <h1 class="title">HALO</h1>
+  <p class="desc">
+    Selamat datang di MBH pro Global Travel Work Platform!  
+    Harap masuk ke akun Anda.
+  </p>
+
+  <form action="dashboard.html">
+    <input type="tel" placeholder="+62 Nomor Telepon" required>
+    <input type="password" placeholder="Kata Sandi" required>
+
+    <div class="btn-row">
+      <a href="index.html" class="btn btn-light">Daftar</a>
+      <button type="submit" class="btn btn-dark">Masuk</button>
+    </div>
+  </form>
+</div>
+
 </body>
 </html>
