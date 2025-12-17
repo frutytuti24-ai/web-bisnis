@@ -3,6 +3,7 @@
   font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
+/* ===== GLOBAL ===== */
 body {
   margin: 0;
   height: 100vh;
@@ -16,7 +17,9 @@ body.dark {
   background: linear-gradient(180deg, #1f6f68, #2e8f80);
 }
 
-.wrapper {
+/* ===== CONTAINER ===== */
+.wrapper,
+.card {
   width: 320px;
   padding: 30px;
   border-radius: 22px;
@@ -25,11 +28,7 @@ body.dark {
   box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
-body.dark .wrapper {
-  background: rgba(255,255,255,0.12);
-  color: #eafff8;
-}
-
+/* ===== TEXT ===== */
 .title {
   margin-bottom: 10px;
 }
@@ -39,6 +38,7 @@ body.dark .wrapper {
   margin-bottom: 22px;
 }
 
+/* ===== INPUT ===== */
 input {
   width: 100%;
   padding: 12px 15px;
@@ -48,17 +48,18 @@ input {
   margin-bottom: 12px;
 }
 
+/* ===== BUTTON ===== */
 .btn-row {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
 }
 
-.btn {
+.btn,
+button {
   padding: 12px;
   width: 48%;
   border-radius: 25px;
-  text-decoration: none;
   font-weight: bold;
   border: none;
   cursor: pointer;
@@ -82,6 +83,30 @@ input {
   display: block;
   margin-top: 15px;
   text-decoration: none;
-  color: #d7fff0;
+  color: #1f6f68;
   font-size: 14px;
+}
+
+/* ================================================= */
+/* 🔥 DASHBOARD PROTECTION – HILANGKAN ICON WANITA */
+/* ================================================= */
+
+/* Semua kemungkinan avatar / icon bulat */
+img,
+.avatar,
+.user-avatar,
+.profile,
+.icon,
+i,
+[class*="avatar"],
+[class*="profile"],
+[class*="user"] {
+  background-image: none !important;
+  display: none !important;
+}
+
+/* Hilangkan pseudo-element */
+*::before,
+*::after {
+  background-image: none !important;
 }
