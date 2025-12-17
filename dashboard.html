@@ -1,66 +1,20 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <title>Dashboard</title>
-  <link rel="stylesheet" href="style.css">
+<script>
+  if (window.netlifyIdentity) {
 
-  <!-- WAJIB -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-</head>
+    netlifyIdentity.on("init", user => {
+      // Kalau BELUM login → tendang
+      if (!user) {
+        location.href = "index.html";
+        return;
+      }
 
-<body>
+      // Kalau SUDAH login
+      const roles = user.app_metadata?.roles || [];
 
-  <!-- ISI DASHBOARD -->
-  <div class="card">
-    <h2>Dashboard</h2>
-    <p>Selamat datang</p>
-    <button onclick="netlifyIdentity.logout()">Logout</button>
-  </div>
+      if (roles.includes("admin")) {
+        document.getElementById("adminPanel").style.display = "block";
+      }
+    });
 
-  <!-- PANEL ADMIN -->
-  <div id="adminPanel" style="display:none;">
-    <h3>Admin: Update Saldo</h3>
-
-    <input id="email" placeholder="Email user">
-    <input id="amount" type="number" placeholder="Jumlah saldo">
-
-    <button onclick="updateSaldo()">Update Saldo</button>
-  </div>
-
-  <!-- SCRIPT SELALU DI AKHIR -->
-  <script>
-    const user = netlifyIdentity.currentUser();
-
-    // PROTEKSI DASHBOARD
-    if (!user) {
-      location.href = "index.html";
-    }
-
-    // CEK ROLE
-    const roles = user.app_metadata?.roles || [];
-
-    if (roles.includes("admin")) {
-      document.getElementById("adminPanel").style.display = "block";
-    }
-
-    // KIRIM KE BACKEND
-    async function updateSaldo() {
-      const email = document.getElementById("email").value;
-      const amount = document.getElementById("amount").value;
-
-      const res = await fetch("/.netlify/functions/updateSaldo", {
-        method: "POST",
-        body: JSON.stringify({
-          targetEmail: email,
-          amount: amount
-        })
-      });
-
-      const data = await res.json();
-      alert(data.message);
-    }
-  </script>
-
-</body>
-</html>
+  }
+</script>
