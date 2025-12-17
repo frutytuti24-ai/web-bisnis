@@ -1,20 +1,54 @@
-<script>
-  if (window.netlifyIdentity) {
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
 
-    netlifyIdentity.on("init", user => {
-      // Kalau BELUM login → tendang
-      if (!user) {
-        location.href = "index.html";
-        return;
-      }
+  <!-- Netlify Identity -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
 
-      // Kalau SUDAH login
-      const roles = user.app_metadata?.roles || [];
+  <!-- KONTEN PASTI MUNCUL -->
+  <div class="card">
+    <h2>Dashboard</h2>
+    <p id="status">Memuat...</p>
+    <button onclick="netlifyIdentity.logout()">Logout</button>
+  </div>
 
-      if (roles.includes("admin")) {
-        document.getElementById("adminPanel").style.display = "block";
-      }
-    });
+  <!-- PANEL ADMIN -->
+  <div id="adminPanel" style="display:none;">
+    <h3>Admin Panel</h3>
+    <p>Kamu adalah admin</p>
+  </div>
 
-  }
-</script>
+  <!-- SCRIPT AMAN -->
+  <script>
+    if (!window.netlifyIdentity) {
+      document.getElementById("status").innerText = "Identity tidak termuat";
+    } else {
+      netlifyIdentity.on("init", user => {
+        if (!user) {
+          document.getElementById("status").innerText = "Belum login, redirect...";
+          setTimeout(() => {
+            location.href = "index.html";
+          }, 500);
+          return;
+        }
+
+        // Sudah login
+        document.getElementById("status").innerText =
+          "Login sebagai: " + user.email;
+
+        const roles = user.app_metadata?.roles || [];
+
+        if (roles.includes("admin")) {
+          document.getElementById("adminPanel").style.display = "block";
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
